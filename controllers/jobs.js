@@ -44,6 +44,7 @@ const deleteJob = async (req, res) => {
         user: { userId }
     } = req
     const deleted = await Jobs_Model.findByIdAndDelete({ _id: jobId, createdBy: userId })
+    if (!deleted) throw new NotFoundError(`no job found`)
     res.status(StatusCodes.OK).json({ job: deleted })
 }
 

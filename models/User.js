@@ -26,6 +26,7 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
+        required: [true, 'Please set-up a password'],
         minlength: 6
     }
 })
